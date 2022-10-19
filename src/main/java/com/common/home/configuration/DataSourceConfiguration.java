@@ -46,7 +46,9 @@ public class DataSourceConfiguration {
 	private final String sqlMapperConfig ="classpath:/sqlmap/sql-mapper-config.xml";
 	private final String driverClassName ="org.sqlite.JDBC";
 	private final String dbName = "sqlite.db";
+	private final String DB_HOME_ENV = "COMMON_DB_HOME";
 	private String url = null;
+
 	private Path db;
 	//String query ="INSERT INTO dual(x, create_date) values(?, ?) ON CONFLICT(x) DO UPDATE SET create_date=?;";
 
@@ -152,7 +154,8 @@ public class DataSourceConfiguration {
     						put("msg","Database is created.");
     					}
     				}.toJSONString());
-    				prep.setString(5, create_date);    				
+    				prep.setString(5, create_date);
+    				prep.setString(6, create_date);    	
     				prep.addBatch();
     				conn.setAutoCommit(false);
         			prep.executeBatch();
@@ -182,10 +185,11 @@ public class DataSourceConfiguration {
     
 	@Bean(name="dataSource")
 	public BasicDataSource getDataSource() {
-		update_to_path("COMMON_DB_HOME");
+		update_to_path(DB_HOME_ENV);
 		updateDatabase();
 		System.out.println("driverClassName : "+driverClassName);
 		System.out.println("url : "+url);
+		System.out.println("DB PATH ENV : "+ DB_HOME_ENV);
 		BasicDataSource dataSource = new BasicDataSource();
 			dataSource.setDriverClassName(driverClassName);
 			dataSource.setUrl(url);

@@ -11,3 +11,8 @@ Added useful libraries and settings to the Basic Spring Legacy project.
 >COMMON_DB_HOME = <Directory>
 >```
 > If you don't need it, please delete "DataSourceConfiguration.java"
+---
+2. Use logback. Define an environment variable.
+>```
+>LOG_HOME = <Directory>
+>```
