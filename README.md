@@ -1,4 +1,4 @@
-# Base Settings for Spring Legacy Project
+# Usely Settings for Spring Legacy Project
 
 ## What is this
 Added useful libraries and settings to the Spring Legacy project.
