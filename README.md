@@ -1,7 +1,7 @@
 # Base Settings for Spring Legacy Project
 
 ## What is this
-Added useful libraries and settings to the Basic Spring Legacy project.
+Added useful libraries and settings to the Spring Legacy project.
 
 
 
