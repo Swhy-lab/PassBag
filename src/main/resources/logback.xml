@@ -43,7 +43,7 @@ OFF - OFF
 		if condition='p("spring.profiles.active").equals("test")'
 		 -->
 		<property name="path" value="${LOG_HOME}"></property>
-		<if condition='isDefined("path")'>
+		<if condition='!isNull("${LOG_HOME}")'>
 			<then>
 				<property name="log_path" value="${LOG_HOME}/logs"></property>
 					<!-- 콘솔로 로그를 남김 -->
