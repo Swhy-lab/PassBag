@@ -46,7 +46,7 @@
         <!-- <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/> -->
     </context:component-scan > 
-    
+
 	<!-- commons-fileupload 업다운 리졸버 -->
 	<!-- <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
         <beans:property name="defaultEncoding" value="utf-8"></beans:property>

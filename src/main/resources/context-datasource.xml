@@ -8,40 +8,29 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
-<!-- 	<bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name="driverClassName" value="${markdown.sqlite.driverClassName}" />
-		<property name="url" value="${markdown.sqlite.url}" />
+	<bean id="dataSourceStaterPack" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="org.sqlite.JDBC" />
+		<property name="url" value="jdbc:sqlite:${STORAGE_HOME}/sqlite.db" />
+		<!-- <property name="url" value="mariadb?autoReconnect=true" /> -->
 		<property name="username" value="racoon"/>
 		<property name="password" value=""/>
-		<property name="initialSize" value="${markdown.sqlite.initialSize}" />
-		<property name="maxActive" value="${markdown.sqlite.maxActive}" />
-		<property name="maxIdle" value="${markdown.sqlite.maxIdle}" />
-		<property name="defaultAutoCommit" value="${markdown.sqlite.defaultAutoCommit}" />
-        <property name="testWhileIdle" value="true"/>
-        <property name="timeBetweenEvictionRunsMillis" value="600000"/>
+		
+		<property name="initialSize" value="10" />
+		<property name="maxActive" value="200" />
+		<property name="maxIdle" value="20" />
+		
+		<property name="validationQuery" value="SELECT 1"/>
+		<property name="testOnBorrow" value="false"/><!-- False Recommended -->
+		<property name="testWhileIdle" value="true"/>
+		<property name="timeBetweenEvictionRunsMillis" value="600000"/>
 	</bean>
 
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource2" />
+		<property name="dataSource" ref="dataSourceStaterPack" />
 	</bean>
-	
-	
-
-	
- -->
- <tx:annotation-driven transaction-manager="transactionManager" />
- <!-- 
- 	tx:annotation-driven 의 경우 @AnnotaionDriveTx로 대체
-	<dependency>
-	   	<groupId>org.springframework.javaconfig</groupId>
-	   	<artifactId>spring-javaconfig</artifactId>
-	   	<version>1.0.0.m3</version>
-	</dependency>
-  -->
-	
-	
-	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<!-- 
+	<aop:aspectj-autoproxy />
 	<context:annotation-config />
-    <aop:aspectj-autoproxy />
-
+ 	-->
 </beans>
