@@ -29,11 +29,26 @@
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- Default View Resolver -->
+	<!-- 
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
+	 -->
+	<!-- Tiles View Resolver -->
+	<beans:bean id="tielsViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	    <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+	    <beans:property name="order" value="1" />
+	</beans:bean>
+	<!-- Tiles Configuration -->
+	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+	    <beans:property name="definitions">
+	        <beans:list>        	
+		        <beans:value>/WEB-INF/tiles/home-layout.xml</beans:value>
+	        </beans:list>
+	    </beans:property>
+	</beans:bean>
 	<!-- 명시적  -->
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	<context:component-scan base-package="com.common.home">
@@ -48,13 +63,13 @@
     </context:component-scan > 
 
 	<!-- commons-fileupload 업다운 리졸버 -->
-	<!-- <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
         <beans:property name="defaultEncoding" value="utf-8"></beans:property>
-		<beans:property name="maxUploadSize" value="4294967296"></beans:property>1024 * 1024 * 10 bytes 10MB  한 파일의 최대 크기
-		<beans:property name="maxUploadSizePerFile" value="2147483648"></beans:property> 1024 * 1024 * 2bytes  2MB ㅎRequest로 전달될 파일의 크기
-		<beans:property name="uploadTempDir" value="file:${COMMON_TMP_PATH}"></beans:property>
-		<beans:property name="maxInMemorySize" value="10485756"></beans:property>메모리상에서 유지하는 파일 
-	</beans:bean> -->
+		<beans:property name="maxUploadSize" value="4294967296"></beans:property><!-- 1024 * 1024 * 10 bytes 10MB  한 파일의 최대 크기  -->
+		<beans:property name="maxUploadSizePerFile" value="2147483648"></beans:property> <!-- 1024 * 1024 * 2bytes  2MB ㅎRequest로 전달될 파일의 크기 -->
+		<beans:property name="uploadTempDir" value="file:${TMP_HOME}"></beans:property>
+		<beans:property name="maxInMemorySize" value="10485756"></beans:property><!-- 메모리상에서 유지하는 파일 --> 
+	</beans:bean>
 	
 	<!-- 인터셉터적용 -->
 	<!-- <mvc:interceptors>

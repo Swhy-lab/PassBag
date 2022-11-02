@@ -9,18 +9,11 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 	
-<!-- Example 	
-	<util:properties id="Server">
-		<prop key="active">#{systemProperties['spring.profiles.active']}</prop>
-	</util:properties>
- -->	 
-
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="ignoreResourceNotFound" value="true"/>
 		<property name="locations">
 			<list>
 				<value>classpath:config/common.properties</value>
-				<!-- <value>classpath:config/#{systemProperties['spring.profiles.active']}.properties</value> -->
 			</list>
 		</property>
 	</bean>

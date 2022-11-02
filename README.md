@@ -16,3 +16,9 @@ Added useful libraries and settings to the Spring Legacy project.
 >```
 >LOG_HOME = <Directory>
 >```
+
+---
+3. Path to uploadTempDir of MultipartResolver. Define an environment variable.
+>```
+>TMP_HOME = <Directory>
+>```

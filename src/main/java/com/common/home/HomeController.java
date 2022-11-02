@@ -40,13 +40,13 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-try {
-
-System.out.println(cdao.getTimestamp());
-}catch(Exception e) {
-	e.printStackTrace();
-}
-		return "home";
+		try {
+		
+		System.out.println(cdao.getTimestamp());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return "home/home";
 	}
 	
 	@ResponseBody
