@@ -52,7 +52,7 @@ OFF - OFF
 							<charset>UTF-8</charset>
 						<!-- 로그 메시지 패턴 -->
 						<Pattern>
-							BaseSpringLegacy - %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n
+							PassBag - %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n
 						</Pattern>
 					</encoder>
 				</appender> 
@@ -61,7 +61,7 @@ OFF - OFF
 					<file>${log_path}/server.log</file>
 					<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 						<Pattern>
-							BaseSpringLegacy - %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n
+							PassBag - %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n
 						</Pattern>
 					</encoder>
 					<!-- 

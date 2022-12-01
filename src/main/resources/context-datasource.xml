@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	<bean id="dataSourceStaterPack" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="org.sqlite.JDBC" />
-		<property name="url" value="jdbc:sqlite:${STORAGE_HOME}/sqlite.db" />
+		<property name="url" value="jdbc:sqlite:${STORAGE_HOME}/PassBag.db" />
 		<!-- <property name="url" value="mariadb?autoReconnect=true" /> -->
 		<property name="username" value="racoon"/>
 		<property name="password" value=""/>

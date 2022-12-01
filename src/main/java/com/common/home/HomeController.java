@@ -21,6 +21,7 @@ import com.common.home.dao.CommonDAO;
  * Handles requests for the application home page.
  */
 @Controller
+@RequestMapping(value="/PassBag", method=RequestMethod.GET)
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
